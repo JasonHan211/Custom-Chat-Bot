@@ -1,17 +1,16 @@
 import os, streamlit as st
 from dotenv import load_dotenv
-
-# py -m streamlit run Custom_chatbot.py
-
-# Uncomment to specify your OpenAI API key here (local testing only, not in production!), or add corresponding environment variable (recommended)
-load_dotenv()
-os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
-
 from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, PromptHelper, ServiceContext
 from langchain.llms.openai import OpenAI
 
+
+# Import the OpenAI API key from the .env file
+load_dotenv()
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+
+
 # Define a simple Streamlit app
-st.title("Ask Chatbot")
+st.title("WMS Helpbot")
 query = st.text_input("What would you like to ask?", "")
 
 # If the 'Submit' button is clicked
